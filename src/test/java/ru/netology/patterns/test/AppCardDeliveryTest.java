@@ -18,7 +18,7 @@ class AppCardDeliveryTest {
 
     @BeforeEach
     void setup() {
-        open("http://localhost:9999");
+            open("http://localhost:9999");
     }
 
     @Test
@@ -43,8 +43,8 @@ class AppCardDeliveryTest {
         $("[data-test-id='agreement']").click();
         $("button.button").click();
         $(byText("Запланировать")).click();
-        $(byText("Успешно")).shouldBe(Condition.visible, Duration.ofSeconds(15));
-        $("[data-test-id='succsess-notification'] .notification__content")
+        $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
+        $("[data-test-id='success-notification'] .notification__content")
                 .shouldHave(exactText("Встреча успешно запланирована на " + firstMeetingDate))
                 .shouldBe(visible);
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
@@ -54,7 +54,7 @@ class AppCardDeliveryTest {
                 .shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"))
                 .shouldBe(visible);
         $("[data-test-id='replan-notification'] button").click();
-        $("[data-test-id='succsess-notification'] .notification__content")
+        $("[data-test-id='success-notification'] .notification__content")
                 .shouldHave(exactText("Встреча успешно запланирована на " + secondMeetingDate))
                 .shouldBe(visible);
 
