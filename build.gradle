@@ -12,7 +12,7 @@ compileTestJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
-}
+}пше
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
